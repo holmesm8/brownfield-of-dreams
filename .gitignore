@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+!/public/packs-test/manifest.json
 
 # Ignore uploaded files in development
 /storage/*
@@ -34,4 +35,3 @@
 yarn-debug.log*
 .yarn-integrity
 .rubocop.yml
-!/public/packs-test/manifest.json
