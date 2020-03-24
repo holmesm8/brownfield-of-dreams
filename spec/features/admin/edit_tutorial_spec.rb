@@ -19,8 +19,6 @@ describe "An Admin can edit a tutorial" do
       click_on "Create Video"
     end
 
-
-
     expect(current_path).to eq(edit_admin_tutorial_path(tutorial))
 
     within(first(".video")) do
