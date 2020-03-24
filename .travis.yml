@@ -3,4 +3,9 @@ services:
   
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
-  - yarn add webpack-cli
+  - nvm install v11.12.0
+  - nvm use v11.12.0
+  - yarn add stimulus
+
+env:
+  - ENV['RAILS_ENV'] = 'test'
