@@ -3,4 +3,6 @@ services:
   
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
-  - yarn add webpack-cli -D
+
+env:
+  - ENV['RAILS_ENV'] = 'test'
