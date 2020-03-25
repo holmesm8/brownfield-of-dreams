@@ -10,16 +10,27 @@
   <section>
     <h1>Bookmarked Segments</h1>
   </section>
+
   <section>
-  <% if current_user.github_repos != nil %>
+    <% if current_user.github_repos != nil %>
     <h1>GitHub Repos</h1>
-      <ul id="github-repos">
-        <% current_user.github_repos.each do |repo| %>
-          <li><%= link_to repo.name, repo.html_url, class: "repo_link" %>
+    <ul id="github-repos">
+      <% current_user.github_repos.each do |repo| %>
+      <li><%= link_to repo.name, repo.html_url %>
         <% end %>
-      </ul>
-  <% end %>
+    </ul>
+    <% end %>
   </section>
+
+  <section>
+    <% if current_user.github_followers != nil %>
+    <h1>GitHub followers</h1>
+    <ul id="github-followers">
+      <% current_user.github_followers.each do |follower| %>
+      <li><%= link_to follower.login, follower.html_url %>
+        <% end %>
+    </ul>
+    <% end %>
+  </section>
+
 </section>
-
-

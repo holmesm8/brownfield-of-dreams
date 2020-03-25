@@ -10,9 +10,13 @@ class User < ApplicationRecord
 
   def github_repos
     return nil if self.github_token.blank?
-    github_api = GithubFacade.new
+    github_api = GithubService.new
     github_api.get_repos(self)[0..4].map do |repo|
       Repo.new(repo)
     end
+  end
+
+  def github_followers
+
   end
 end

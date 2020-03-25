@@ -25,12 +25,12 @@ RSpec.describe 'User Dashboard Github Repos' do
     repo_array = 5.times.map { Repo.new(name: "User 1 Repos", html_url: "www.github.com") }
     second_repo_array = 5.times.map { Repo.new(name: "User 2 Repos", html_url: "www.github.com") }
 
-    allow(user).to receive(:github_repos) {repo_array}
+    # allow(user).to receive(:github_repos) {repo_array}
     allow(user2).to receive(:github_repos) {second_repo_array}
     # user:expect(:github_repos) {repo_array}
 
     visit '/dashboard'
-
+save_and_open_page
     within '#github-repos' do
       expect(page).to have_link('User 1 Repos', href: 'www.github.com', count: 5)
       expect(page).not_to have_link('User 2 Repos')
