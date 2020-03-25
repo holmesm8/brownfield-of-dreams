@@ -22,7 +22,6 @@ RSpec.describe 'User Dashboard Github Followers' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     followers_array1 = 5.times.map {Follower.new(login: "Follower", html_url: "www.github.com")}
-
     followers_arrays2 = 5.times.map {Follower.new(login: "2nd Follower", html_url: "www.cnn.com")}
 
     allow(user).to receive(:github_followers) {followers_array1}
