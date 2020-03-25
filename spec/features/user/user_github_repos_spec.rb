@@ -27,10 +27,8 @@ RSpec.describe 'User Dashboard Github Repos' do
 
     allow(user).to receive(:github_repos) {repo_array}
     allow(user2).to receive(:github_repos) {second_repo_array}
-    # user:expect(:github_repos) {repo_array}
 
     visit '/dashboard'
-
     within '#github-repos' do
       expect(page).to have_link('User 1 Repos', href: 'www.github.com', count: 5)
       expect(page).not_to have_link('User 2 Repos')

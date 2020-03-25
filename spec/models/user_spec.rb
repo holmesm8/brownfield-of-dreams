@@ -22,4 +22,31 @@ RSpec.describe User, type: :model do
       expect(admin.admin?).to be_truthy
     end
   end
+
+  describe "methods" do
+    it '#github_repos', :vcr => {record: :new_episodes} do
+      user = User.create!(
+                      email: 'user1@example.com',
+                      first_name: 'Test',
+                      last_name: 'Face',
+                      password: 'password',
+                      role: 0,
+                      github_token: "#{ENV['GITHUB_API_KEY']}")
+      
+      expect(user.github_repos[0].class).to eq(Repo)
+      expect(user.github_repos.length).to eq(5)
+    end
+    
+    it '#github_followers', :vcr => {record: :new_episodes} do
+      user = User.create!(
+                      email: 'user1@example.com',
+                      first_name: 'Test',
+                      last_name: 'Face',
+                      password: 'password',
+                      role: 0,
+                      github_token: "#{ENV['GITHUB_API_KEY']}")
+      
+      expect(user.github_followers[0].class).to eq(Follower)
+    end
+  end
 end
