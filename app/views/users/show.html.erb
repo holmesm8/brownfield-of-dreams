@@ -24,7 +24,7 @@
 
   <section>
     <% if current_user.github_followers != nil %>
-    <h1>GitHub followers</h1>
+    <h1>Followers</h1>
     <ul id="github-followers">
       <% current_user.github_followers.each do |follower| %>
       <li><%= link_to follower.login, follower.html_url %>

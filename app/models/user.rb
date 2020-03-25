@@ -17,6 +17,10 @@ class User < ApplicationRecord
   end
 
   def github_followers
-
+    return nil if self.github_token.blank?
+    github_api = GithubService.new
+    github_api.get_followers(self).map do |follower|
+      Follower.new(follower)
+    end
   end
 end
