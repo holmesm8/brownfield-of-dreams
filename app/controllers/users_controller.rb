@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def connect
+    require 'pry'; binding.pry
+    testy = ENV['omniauth.auth']
+  end
+
   private
 
   def user_params
