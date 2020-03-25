@@ -18,7 +18,7 @@
     </section>
   <% else %>
     <section>
-      <% if current_user.github_repos != nil %>
+      <% if current_user.github_repos.length > 0 %>
       <h1>GitHub Repos</h1>
       <ul id="github-repos">
         <% current_user.github_repos.each do |repo| %>
@@ -29,7 +29,7 @@
     </section>
 
     <section>
-      <% if current_user.github_followers != nil %>
+      <% if current_user.github_followers.length > 0 %>
       <h1>Followers</h1>
       <ul id="github-followers">
         <% current_user.github_followers.each do |follower| %>
@@ -40,7 +40,7 @@
     </section>
 
     <section>
-      <% if current_user.github_followers != nil %>
+      <% if current_user.github_followers.length > 0 %>
       <h1>Following</h1>
       <ul id="github-following">
         <% current_user.github_followings.each do |following| %>
