@@ -1,20 +1,19 @@
 class GithubService
+  def get_repos(user)
+    parsed = JSON.parse(api_response('/user/repos', user).body, symbolize_names: true)
+  end
+
+  def get_followers(user)
+    parsed = JSON.parse(api_response('/user/followers', user).body, symbolize_names: true)
+  end
+
+  private
 
   def conn
-    Faraday.new(url: "https://api.github.com'") do |f|
-      f.adapter  Faraday.default_adapter
-      f.params[:Authorization] = ENV['GITHUB_API_KEY']
-    end
+    conn = Faraday.new('https://api.github.com')
   end
 
-  def get_json(url, params, user)
-    response = conn.get(url, params)
-    JSON.parse(response.body, symbolize_names: true)
-    require 'pry'; binding.pry
-  end
-
-  def get_repos(user)
-    api_option = {visibility: 'all'}
-    get_json('/user/repos', api_option, user)
+  def api_response(url, user) 
+    response = conn.get(url, nil, {:Authorization => user.github_token})
   end
 end
