@@ -48,5 +48,17 @@ RSpec.describe User, type: :model do
       
       expect(user.github_followers[0].class).to eq(Follower)
     end
+
+    it '#github_followings', :vcr => {record: :new_episodes} do
+      user = User.create!(
+                      email: 'user1@example.com',
+                      first_name: 'Test',
+                      last_name: 'Face',
+                      password: 'password',
+                      role: 0,
+                      github_token: "#{ENV['GITHUB_API_KEY']}")
+      
+      expect(user.github_followings[0].class).to eq(Follower)
+    end
   end
 end
