@@ -33,4 +33,17 @@
     <% end %>
   </section>
 
+  <section>
+    <% if current_user.github_followers != nil %>
+    <h1>Following</h1>
+    <ul id="github-following">
+      <% current_user.github_followings.each do |following| %>
+      <li><%= link_to following.login, following.html_url %>
+        <% end %>
+    </ul>
+    <% end %>
+  </section>
+
+
+
 </section>

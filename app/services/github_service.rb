@@ -7,6 +7,10 @@ class GithubService
     parsed = JSON.parse(api_response('/user/followers', user).body, symbolize_names: true)
   end
 
+   def get_followings(user)
+    parsed = JSON.parse(api_response('/user/following', user).body, symbolize_names: true)
+  end
+
   private
 
   def conn
