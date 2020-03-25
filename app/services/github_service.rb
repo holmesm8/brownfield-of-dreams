@@ -1,4 +1,4 @@
-class GithubFacade
+class GithubService
 
   def get_repos(user)
     conn = Faraday.new('https://api.github.com')
