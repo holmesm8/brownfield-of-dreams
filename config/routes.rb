@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/auth/github', as: "github_login"
   get '/auth/:provider/callback', to: 'sessions#update'
 
+  post '/user/add_friend/:friend_html', to: "friendships#create", as: 'create_friend'
+
   namespace :admin do
     get "/dashboard", to: "dashboard#show"
     resources :tutorials, only: [:create, :edit, :update, :destroy, :new] do
