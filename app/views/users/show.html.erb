@@ -47,7 +47,7 @@
         <% current_user.github_followers.each do |follower| %>
         <li><%= link_to follower.login, follower.html_url %>
           <% if User.connected_follow?(follower.html_url) && current_user.friend_check?(follower.html_url) %>
-            <%= link_to "Add as Friend", create_friend_path("#{follower.login}"), method: :post %>
+            <%= link_to "Add as Friend", "/dashboard?friend_html=#{follower.login}", method: :post %>
           <% end %>
           <% end %>
       </ul>
@@ -61,7 +61,7 @@
         <% current_user.github_followings.each do |following| %>
         <li><%= link_to following.login, following.html_url %>
         <% if User.connected_follow?(following.html_url) && current_user.friend_check?(following.html_url) %>
-            <%= link_to "Add as Friend", create_friend_path("#{following.login}"), method: :post %>
+            <%= link_to "Add as Friend", "/dashboard?friend_html=#{following.login}", method: :post %>
           <% end %>
           <% end %>
       </ul>
