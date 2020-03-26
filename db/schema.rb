@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_192555) do
+ActiveRecord::Schema.define(version: 2020_03_26_172725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "friend_id", null: false
+  end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
@@ -68,6 +73,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_192555) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "github_token"
+    t.string "github_url"
     t.index ["email"], name: "index_users_on_email"
   end
 

@@ -11,6 +11,18 @@
     <h1>Bookmarked Segments</h1>
   </section>
 
+<% if current_user.friendships != nil %>
+  <section id="friends">
+    <h1>Friends</h1>
+    <ul>
+    <% current_user.friendships.each do |friend| %>
+      <li><%= friend.first_name %> <%= friend.last_name%>
+    <% end %>
+    </ul>
+  </section>
+<% end %>
+
+
 
   <% if current_user.github_token.blank? %>
     <section>
@@ -34,6 +46,9 @@
       <ul id="github-followers">
         <% current_user.github_followers.each do |follower| %>
         <li><%= link_to follower.login, follower.html_url %>
+          <% if User.connected_follow?(follower.html_url) && current_user.friend_check?(follower.html_url) %>
+            <%= link_to "Add as Friend", create_friend_path("#{follower.login}"), method: :post %>
+          <% end %>
           <% end %>
       </ul>
       <% end %>
@@ -45,6 +60,9 @@
       <ul id="github-following">
         <% current_user.github_followings.each do |following| %>
         <li><%= link_to following.login, following.html_url %>
+        <% if User.connected_follow?(following.html_url) && current_user.friend_check?(following.html_url) %>
+            <%= link_to "Add as Friend", create_friend_path("#{following.login}"), method: :post %>
+          <% end %>
           <% end %>
       </ul>
       <% end %>
