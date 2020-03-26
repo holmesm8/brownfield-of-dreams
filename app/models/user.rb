@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :friends, through: :friendships
 
   validates :email, uniqueness: true, presence: true
-  validates :github_token, uniqueness: true
+  validates :github_token, uniqueness: true, allow_blank: true
   validates :github_url, uniqueness: true, allow_blank: true
   validates_presence_of :password
   validates_presence_of :first_name
