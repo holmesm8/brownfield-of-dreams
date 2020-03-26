@@ -1,34 +1,55 @@
 class User < ApplicationRecord
   has_many :user_videos
   has_many :videos, through: :user_videos
+  # has_and_belongs_to_many(:users,
+  #   :joins_table => "friends",
+  #   :foreign_key => "user_a_id",
+  #   :association_foreign_key => "post_b_id")
+  has_many :friendships, foreign_key: :user_id
+  has_many :friends, through: :friendships
 
   validates :email, uniqueness: true, presence: true
+  validates :github_token, uniqueness: true
+  validates :github_url, uniqueness: true, allow_blank: true
   validates_presence_of :password
   validates_presence_of :first_name
   enum role: [:default, :admin]
   has_secure_password
 
-  def github_repos
+  def api_github_connection
     return nil if self.github_token.blank?
-    github_api = GithubService.new
-    github_api.get_repos(self)[0..4].map do |repo|
+    GithubService.new
+  end
+
+  def github_repos
+    api_github_connection.get_repos(self)[0..4].map do |repo|
       Repo.new(repo)
     end
   end
 
   def github_followers
-    return nil if self.github_token.blank?
-    github_api = GithubService.new
-    github_api.get_followers(self).map do |follower|
+    api_github_connection.get_followers(self).map do |follower|
       Follower.new(follower)
     end
   end
 
   def github_followings
-    return nil if self.github_token.blank?
-    github_api = GithubService.new
-    github_api.get_followings(self).map do |following|
+    api_github_connection.get_followings(self).map do |following|
       Follower.new(following)
     end
   end
+
+  def self.connected_follow?(url)
+   User.find_by(github_url: "#{url}") != nil
+  end
+
+  def friendships
+    User.find(self.id).friends
+  end
+
+  def friend_check?(url)
+    url_array = User.find(self.id).friends.map {|friend| friend.github_url}
+    !(url_array.include?(url))
+  end
+
 end
