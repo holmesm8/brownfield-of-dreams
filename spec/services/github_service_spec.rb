@@ -16,19 +16,16 @@ RSpec.describe 'Github Api Service Connection' do
   end
 
   it 'can connect to the Github API Repos with creditionals and return array of hashes', :vcr => {record: :once} do
-
     expect(@GitHub_API.get_repos(@user).class).to eq(Array)
     expect(@GitHub_API.get_repos(@user)[0].class).to eq(Hash)
   end
 
   it 'can connect to the Github API Followers with creditionals and return array of hashes', :vcr => {record: :once} do
-
     expect(@GitHub_API.get_followers(@user).class).to eq(Array)
     expect(@GitHub_API.get_followers(@user)[0].class).to eq(Hash)
   end
 
   it 'can connect to the Github API Followings with creditionals and return array of hashes', :vcr => {record: :once} do
-
     expect(@GitHub_API.get_followings(@user).class).to eq(Array)
     expect(@GitHub_API.get_followings(@user)[0].class).to eq(Hash)
   end

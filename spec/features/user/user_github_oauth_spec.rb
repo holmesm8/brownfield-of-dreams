@@ -41,7 +41,7 @@ RSpec.describe 'User Dashboard Github OAuth Connect' do
     click_on "Connect to Github"
 
     expect(current_path).to eq(dashboard_path)
-    expect(user.github_token).to eq("token #{ENV["GITHUB_TEST_KEY"]}")
+    expect(user.github_token).to eq("#{ENV["GITHUB_TEST_KEY"]}")
 
   end
 end
