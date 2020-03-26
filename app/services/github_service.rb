@@ -18,6 +18,6 @@ class GithubService
   end
 
   def api_response(url, user) 
-    response = conn.get(url, nil, {:Authorization => user.github_token})
+    response = conn.get(url, nil, {:Authorization => "token #{user.github_token}"})
   end
 end
