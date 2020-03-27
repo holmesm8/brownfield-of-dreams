@@ -31,4 +31,26 @@ describe 'A registered user' do
     click_on 'Bookmark'
     expect(page).to have_content("Already in your bookmarks")
   end
+
+  it "can display a list of bookmarks organized by tutorial" do
+    tutorial= create(:tutorial, title: "How to Tie Your Shoes")
+    video = create(:video, title: "The Bunny Ears Technique", tutorial: tutorial)
+    user = create(:user)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit tutorial_path(tutorial)
+
+    expect {
+      click_on 'Bookmark'
+    }.to change { UserVideo.count }.by(1)
+
+    expect(page).to have_content("Bookmark added to your dashboard")
+
+    visit "/dashboard"
+
+    within "#bookmarks" do
+      expect(page).to have_content(tutorial.title)
+    end
+  end
 end
