@@ -53,4 +53,17 @@ describe 'A registered user' do
       expect(page).to have_content(tutorial.title)
     end
   end
+
+  it 'unregister users will see an error when trying to bookmark' do
+    tutorial= create(:tutorial, title: "How to Tie Your Shoes")
+    video = create(:video, title: "The Bunny Ears Technique", tutorial: tutorial)
+
+    visit tutorial_path(tutorial)
+
+    expect {
+      click_on 'Bookmark'
+    }.to change { UserVideo.count }.by(0)
+
+    expect(page).to have_content("Please Log In to Bookmark Videos")
+  end
 end

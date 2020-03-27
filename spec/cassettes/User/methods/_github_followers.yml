@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Fri, 27 Mar 2020 00:39:18 GMT
+      - Fri, 27 Mar 2020 17:24:04 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,12 +35,12 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '4973'
       X-Ratelimit-Reset:
-      - '1585273141'
+      - '1585333428'
       Cache-Control:
       - private, max-age=60, s-maxage=60
       Vary:
       - Accept, Authorization, Cookie, X-GitHub-OTP
-      - Accept-Encoding, Accept, X-Requested-With, X-GitHub-OpenAPI
+      - Accept-Encoding, Accept, X-Requested-With
       Etag:
       - W/"befc3ee714063bfb1c22137f7e034aa6"
       X-Oauth-Scopes:
@@ -70,10 +70,10 @@ http_interactions:
       Content-Security-Policy:
       - default-src 'none'
       X-Github-Request-Id:
-      - DD6C:1049:17679A:462D98:5E7D4B36
+      - F555:6B7C:156019:2FD5DD:5E7E36B4
     body:
       encoding: ASCII-8BIT
       string: '[{"login":"iEv0lv3","id":10391857,"node_id":"MDQ6VXNlcjEwMzkxODU3","avatar_url":"https://avatars1.githubusercontent.com/u/10391857?v=4","gravatar_id":"","url":"https://api.github.com/users/iEv0lv3","html_url":"https://github.com/iEv0lv3","followers_url":"https://api.github.com/users/iEv0lv3/followers","following_url":"https://api.github.com/users/iEv0lv3/following{/other_user}","gists_url":"https://api.github.com/users/iEv0lv3/gists{/gist_id}","starred_url":"https://api.github.com/users/iEv0lv3/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/iEv0lv3/subscriptions","organizations_url":"https://api.github.com/users/iEv0lv3/orgs","repos_url":"https://api.github.com/users/iEv0lv3/repos","events_url":"https://api.github.com/users/iEv0lv3/events{/privacy}","received_events_url":"https://api.github.com/users/iEv0lv3/received_events","type":"User","site_admin":false},{"login":"d-atkins","id":55907198,"node_id":"MDQ6VXNlcjU1OTA3MTk4","avatar_url":"https://avatars0.githubusercontent.com/u/55907198?v=4","gravatar_id":"","url":"https://api.github.com/users/d-atkins","html_url":"https://github.com/d-atkins","followers_url":"https://api.github.com/users/d-atkins/followers","following_url":"https://api.github.com/users/d-atkins/following{/other_user}","gists_url":"https://api.github.com/users/d-atkins/gists{/gist_id}","starred_url":"https://api.github.com/users/d-atkins/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/d-atkins/subscriptions","organizations_url":"https://api.github.com/users/d-atkins/orgs","repos_url":"https://api.github.com/users/d-atkins/repos","events_url":"https://api.github.com/users/d-atkins/events{/privacy}","received_events_url":"https://api.github.com/users/d-atkins/received_events","type":"User","site_admin":false},{"login":"holmesm8","id":12539215,"node_id":"MDQ6VXNlcjEyNTM5MjE1","avatar_url":"https://avatars0.githubusercontent.com/u/12539215?v=4","gravatar_id":"","url":"https://api.github.com/users/holmesm8","html_url":"https://github.com/holmesm8","followers_url":"https://api.github.com/users/holmesm8/followers","following_url":"https://api.github.com/users/holmesm8/following{/other_user}","gists_url":"https://api.github.com/users/holmesm8/gists{/gist_id}","starred_url":"https://api.github.com/users/holmesm8/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/holmesm8/subscriptions","organizations_url":"https://api.github.com/users/holmesm8/orgs","repos_url":"https://api.github.com/users/holmesm8/repos","events_url":"https://api.github.com/users/holmesm8/events{/privacy}","received_events_url":"https://api.github.com/users/holmesm8/received_events","type":"User","site_admin":false},{"login":"alerrian","id":21130370,"node_id":"MDQ6VXNlcjIxMTMwMzcw","avatar_url":"https://avatars1.githubusercontent.com/u/21130370?v=4","gravatar_id":"","url":"https://api.github.com/users/alerrian","html_url":"https://github.com/alerrian","followers_url":"https://api.github.com/users/alerrian/followers","following_url":"https://api.github.com/users/alerrian/following{/other_user}","gists_url":"https://api.github.com/users/alerrian/gists{/gist_id}","starred_url":"https://api.github.com/users/alerrian/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/alerrian/subscriptions","organizations_url":"https://api.github.com/users/alerrian/orgs","repos_url":"https://api.github.com/users/alerrian/repos","events_url":"https://api.github.com/users/alerrian/events{/privacy}","received_events_url":"https://api.github.com/users/alerrian/received_events","type":"User","site_admin":false}]'
     http_version: null
-  recorded_at: Fri, 27 Mar 2020 00:39:18 GMT
+  recorded_at: Fri, 27 Mar 2020 17:24:04 GMT
 recorded_with: VCR 5.1.0
