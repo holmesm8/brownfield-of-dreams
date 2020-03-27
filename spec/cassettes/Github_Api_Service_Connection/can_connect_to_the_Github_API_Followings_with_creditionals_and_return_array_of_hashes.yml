@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.0.0
       Authorization:
-      - "<GITHUB_API_KEY>"
+      - token <GITHUB_API_KEY>
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Wed, 25 Mar 2020 18:17:53 GMT
+      - Fri, 27 Mar 2020 00:39:22 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -33,14 +33,14 @@ http_interactions:
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4969'
+      - '4967'
       X-Ratelimit-Reset:
-      - '1585161233'
+      - '1585273141'
       Cache-Control:
       - private, max-age=60, s-maxage=60
       Vary:
       - Accept, Authorization, Cookie, X-GitHub-OTP
-      - Accept-Encoding, Accept, X-Requested-With
+      - Accept-Encoding, Accept, X-Requested-With, X-GitHub-OpenAPI
       Etag:
       - W/"b481ff0bfaebc4ac3dd17d29ab9e8f45"
       X-Oauth-Scopes:
@@ -70,12 +70,12 @@ http_interactions:
       Content-Security-Policy:
       - default-src 'none'
       X-Github-Request-Id:
-      - E253:5680:AB7B69:11AD6FE:5E7BA051
+      - DD72:78E2:BD7140:13994B5:5E7D4B3A
     body:
       encoding: ASCII-8BIT
       string: '[{"login":"iEv0lv3","id":10391857,"node_id":"MDQ6VXNlcjEwMzkxODU3","avatar_url":"https://avatars1.githubusercontent.com/u/10391857?v=4","gravatar_id":"","url":"https://api.github.com/users/iEv0lv3","html_url":"https://github.com/iEv0lv3","followers_url":"https://api.github.com/users/iEv0lv3/followers","following_url":"https://api.github.com/users/iEv0lv3/following{/other_user}","gists_url":"https://api.github.com/users/iEv0lv3/gists{/gist_id}","starred_url":"https://api.github.com/users/iEv0lv3/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/iEv0lv3/subscriptions","organizations_url":"https://api.github.com/users/iEv0lv3/orgs","repos_url":"https://api.github.com/users/iEv0lv3/repos","events_url":"https://api.github.com/users/iEv0lv3/events{/privacy}","received_events_url":"https://api.github.com/users/iEv0lv3/received_events","type":"User","site_admin":false},{"login":"holmesm8","id":12539215,"node_id":"MDQ6VXNlcjEyNTM5MjE1","avatar_url":"https://avatars0.githubusercontent.com/u/12539215?v=4","gravatar_id":"","url":"https://api.github.com/users/holmesm8","html_url":"https://github.com/holmesm8","followers_url":"https://api.github.com/users/holmesm8/followers","following_url":"https://api.github.com/users/holmesm8/following{/other_user}","gists_url":"https://api.github.com/users/holmesm8/gists{/gist_id}","starred_url":"https://api.github.com/users/holmesm8/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/holmesm8/subscriptions","organizations_url":"https://api.github.com/users/holmesm8/orgs","repos_url":"https://api.github.com/users/holmesm8/repos","events_url":"https://api.github.com/users/holmesm8/events{/privacy}","received_events_url":"https://api.github.com/users/holmesm8/received_events","type":"User","site_admin":false},{"login":"d-atkins","id":55907198,"node_id":"MDQ6VXNlcjU1OTA3MTk4","avatar_url":"https://avatars0.githubusercontent.com/u/55907198?v=4","gravatar_id":"","url":"https://api.github.com/users/d-atkins","html_url":"https://github.com/d-atkins","followers_url":"https://api.github.com/users/d-atkins/followers","following_url":"https://api.github.com/users/d-atkins/following{/other_user}","gists_url":"https://api.github.com/users/d-atkins/gists{/gist_id}","starred_url":"https://api.github.com/users/d-atkins/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/d-atkins/subscriptions","organizations_url":"https://api.github.com/users/d-atkins/orgs","repos_url":"https://api.github.com/users/d-atkins/repos","events_url":"https://api.github.com/users/d-atkins/events{/privacy}","received_events_url":"https://api.github.com/users/d-atkins/received_events","type":"User","site_admin":false}]'
     http_version: null
-  recorded_at: Wed, 25 Mar 2020 18:17:53 GMT
+  recorded_at: Fri, 27 Mar 2020 00:39:22 GMT
 - request:
     method: get
     uri: https://api.github.com/user/following
@@ -86,7 +86,7 @@ http_interactions:
       User-Agent:
       - Faraday v1.0.0
       Authorization:
-      - "<GITHUB_API_KEY>"
+      - token <GITHUB_API_KEY>
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -99,7 +99,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Wed, 25 Mar 2020 18:17:53 GMT
+      - Fri, 27 Mar 2020 00:39:22 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -109,14 +109,14 @@ http_interactions:
       X-Ratelimit-Limit:
       - '5000'
       X-Ratelimit-Remaining:
-      - '4968'
+      - '4966'
       X-Ratelimit-Reset:
-      - '1585161233'
+      - '1585273141'
       Cache-Control:
       - private, max-age=60, s-maxage=60
       Vary:
       - Accept, Authorization, Cookie, X-GitHub-OTP
-      - Accept-Encoding, Accept, X-Requested-With
+      - Accept-Encoding, Accept, X-Requested-With, X-GitHub-OpenAPI
       Etag:
       - W/"b481ff0bfaebc4ac3dd17d29ab9e8f45"
       X-Oauth-Scopes:
@@ -146,10 +146,10 @@ http_interactions:
       Content-Security-Policy:
       - default-src 'none'
       X-Github-Request-Id:
-      - E254:24CB:28FBB0:6C9E08:5E7BA051
+      - DD73:39E8:47AFB7:9741BF:5E7D4B3A
     body:
       encoding: ASCII-8BIT
       string: '[{"login":"iEv0lv3","id":10391857,"node_id":"MDQ6VXNlcjEwMzkxODU3","avatar_url":"https://avatars1.githubusercontent.com/u/10391857?v=4","gravatar_id":"","url":"https://api.github.com/users/iEv0lv3","html_url":"https://github.com/iEv0lv3","followers_url":"https://api.github.com/users/iEv0lv3/followers","following_url":"https://api.github.com/users/iEv0lv3/following{/other_user}","gists_url":"https://api.github.com/users/iEv0lv3/gists{/gist_id}","starred_url":"https://api.github.com/users/iEv0lv3/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/iEv0lv3/subscriptions","organizations_url":"https://api.github.com/users/iEv0lv3/orgs","repos_url":"https://api.github.com/users/iEv0lv3/repos","events_url":"https://api.github.com/users/iEv0lv3/events{/privacy}","received_events_url":"https://api.github.com/users/iEv0lv3/received_events","type":"User","site_admin":false},{"login":"holmesm8","id":12539215,"node_id":"MDQ6VXNlcjEyNTM5MjE1","avatar_url":"https://avatars0.githubusercontent.com/u/12539215?v=4","gravatar_id":"","url":"https://api.github.com/users/holmesm8","html_url":"https://github.com/holmesm8","followers_url":"https://api.github.com/users/holmesm8/followers","following_url":"https://api.github.com/users/holmesm8/following{/other_user}","gists_url":"https://api.github.com/users/holmesm8/gists{/gist_id}","starred_url":"https://api.github.com/users/holmesm8/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/holmesm8/subscriptions","organizations_url":"https://api.github.com/users/holmesm8/orgs","repos_url":"https://api.github.com/users/holmesm8/repos","events_url":"https://api.github.com/users/holmesm8/events{/privacy}","received_events_url":"https://api.github.com/users/holmesm8/received_events","type":"User","site_admin":false},{"login":"d-atkins","id":55907198,"node_id":"MDQ6VXNlcjU1OTA3MTk4","avatar_url":"https://avatars0.githubusercontent.com/u/55907198?v=4","gravatar_id":"","url":"https://api.github.com/users/d-atkins","html_url":"https://github.com/d-atkins","followers_url":"https://api.github.com/users/d-atkins/followers","following_url":"https://api.github.com/users/d-atkins/following{/other_user}","gists_url":"https://api.github.com/users/d-atkins/gists{/gist_id}","starred_url":"https://api.github.com/users/d-atkins/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/d-atkins/subscriptions","organizations_url":"https://api.github.com/users/d-atkins/orgs","repos_url":"https://api.github.com/users/d-atkins/repos","events_url":"https://api.github.com/users/d-atkins/events{/privacy}","received_events_url":"https://api.github.com/users/d-atkins/received_events","type":"User","site_admin":false}]'
     http_version: null
-  recorded_at: Wed, 25 Mar 2020 18:17:53 GMT
+  recorded_at: Fri, 27 Mar 2020 00:39:22 GMT
 recorded_with: VCR 5.1.0
