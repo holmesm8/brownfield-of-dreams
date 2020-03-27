@@ -1,12 +1,9 @@
 class User < ApplicationRecord
   has_many :user_videos
   has_many :videos, through: :user_videos
-  # has_and_belongs_to_many(:users,
-  #   :joins_table => "friends",
-  #   :foreign_key => "user_a_id",
-  #   :association_foreign_key => "post_b_id")
   has_many :friendships, foreign_key: :user_id
   has_many :friends, through: :friendships
+  has_many :tutorials, through: :videos
 
   validates :email, uniqueness: true, presence: true
   validates :github_token, uniqueness: true, allow_blank: true
@@ -52,4 +49,11 @@ class User < ApplicationRecord
     !(url_array.include?(url))
   end
 
+  def bookmarks_list
+    videos = self.videos.joins(:tutorial).select('videos.title, tutorials.title AS tutorial')
+    videos.reduce(Hash.new{|hash, key| hash[key] = []}) do |acc, video|
+       acc[video[:tutorial]] << video
+       acc
+     end 
+  end
 end
