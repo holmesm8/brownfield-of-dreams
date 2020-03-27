@@ -35,11 +35,11 @@ RSpec.describe 'User Dashboard Friendships' do
     visit '/dashboard'
 
     within "#github-followers" do
-      expect(page).to have_link("Add as Friend", count: 1)
+      expect(page).to have_button("Add as Friend", count: 1)
     end
 
     within "#github-following" do
-      expect(page).to have_link("Add as Friend", count: 1)
+      expect(page).to have_button("Add as Friend", count: 1)
     end
 
     within "#github-followers" do

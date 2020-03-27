@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/auth/github', as: "github_login"
   get '/auth/:provider/callback', to: 'sessions#update'
 
+  post '/dashboard', to: "friendships#create", as: 'create_friend'
+
   # post '/user/add_friend/:friend_html', to: "friendships#create", as: 'create_friend'
 
   namespace :admin do
@@ -34,7 +36,6 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#destroy"
 
   get '/dashboard', to: 'users#show'
-  post '/dashboard', to: "friendships#create", as: 'create_friend'
   get '/about', to: 'about#show'
   get '/get_started', to: 'get_started#show'
 
