@@ -7,8 +7,16 @@
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
   </ul>
-  <section>
+  <section id="bookmarks">
     <h1>Bookmarked Segments</h1>
+      <% current_user.bookmarks_list.each do |tutorial, videos| %>
+        <h4><%= tutorial %></h4>
+          <ul>
+          <% videos.each do |video| %>
+            <li><%= video.title %>
+          <% end %>
+          </ul>
+      <% end %>
   </section>
 
 <% if current_user.friendships != nil %>
