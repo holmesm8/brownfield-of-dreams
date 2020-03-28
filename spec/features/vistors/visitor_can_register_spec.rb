@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'vister can create an account', :js, :vcr do
-  xit ' visits the home page' do
+  it ' visits the home page' do
     email = 'jimbob@aol.com'
     first_name = 'Jim'
     last_name = 'Bob'
@@ -34,7 +34,7 @@ describe 'vister can create an account', :js, :vcr do
     expect(page).to_not have_content('Sign In')
   end
 
-  xit 'new registered users are sent an email to verify account', :vcr do
+  it 'new registered users are sent an email to verify account', :vcr do
     email = 'jimbob@aol.com'
     first_name = 'Jim'
     last_name = 'Bob'
