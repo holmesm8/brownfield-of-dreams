@@ -1,11 +1,18 @@
 class SessionsController < ApplicationController
   def new
+    # require 'pry'; binding.pry
     @user ||= User.new
+    if params.has_key?(:activation_key)
+      @key = params[:activation_key]
+    end
   end
 
   def create
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
+      if params[:session].has_key?(:activation_key)
+        user.update_column(:email_confirm, true)
+      end
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
