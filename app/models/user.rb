@@ -9,9 +9,17 @@ class User < ApplicationRecord
   validates :github_token, uniqueness: true, allow_blank: true
   validates :github_url, uniqueness: true, allow_blank: true
   validates_presence_of :password
-  validates_presence_of :first_name
+  validates_presence_of :first_name, :last_name
   enum role: [:default, :admin]
   has_secure_password
+
+  def status
+    if self.email_confirm
+      "Status: Activated"
+    else
+      "Status: Not Verified"
+    end
+  end
 
   def api_github_connection
     return nil if self.github_token.blank?
@@ -55,5 +63,11 @@ class User < ApplicationRecord
        acc[video[:tutorial]] << video
        acc
      end 
+  end
+
+  def set_confirmation_token
+    if self.confirm_token.blank?
+      self.confirm_token = SecureRandom.base64(10).to_s
+    end
   end
 end
