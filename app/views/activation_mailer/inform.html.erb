@@ -1,0 +1,4 @@
+Hello <%= @user_name %>
+
+Please click the following link to fully activate your account:
+<%= link_to 'Click Here to Active Account', "http://www.localhost:3000/login?activation_key=#{@key}" ,method: :post %>
