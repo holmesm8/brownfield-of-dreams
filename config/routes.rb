@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'welcome#index', as: :tag
   get '/register', to: 'users#new'
 
+  get '/invite', to: 'invites#new', as: 'invite'
+  post '/invite', to: 'invites#create', as: 'invite_new'
+
   get '/auth/github', as: "github_login"
   get '/auth/:provider/callback', to: 'sessions#update'
 

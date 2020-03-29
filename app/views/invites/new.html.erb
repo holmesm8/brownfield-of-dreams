@@ -1,0 +1,9 @@
+<h3>Enter a valid GitHub Handle<h3>
+
+<%= form_for :invite, url: invite_new_path do |f| %>
+  <div>
+    <%= f.label :github_handle %>
+    <%= f.text_field :github_handle, class: "block col-12 field" %>
+  </div>
+  <%= f.submit 'Send Invite', class: "mt2 btn btn-primary mb1 bg-teal" %>
+<%end%>
