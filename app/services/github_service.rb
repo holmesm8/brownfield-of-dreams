@@ -7,7 +7,7 @@ class GithubService
     JSON.parse(api_response('/user/followers', user).body, symbolize_names: true)
   end
 
-   def get_followings(user)
+  def get_followings(user)
     JSON.parse(api_response('/user/following', user).body, symbolize_names: true)
   end
 
@@ -22,7 +22,7 @@ class GithubService
     Faraday.new('https://api.github.com')
   end
 
-  def api_response(url, user) 
-    conn.get(url, nil, {:Authorization => "token #{user.github_token}"})
+  def api_response(url, user)
+    conn.get(url, nil, { Authorization: "token #{user.github_token}" })
   end
 end
