@@ -1,0 +1,9 @@
+Hello <%= @user_name %>
+<br>
+Please click the following link and re-login to fully activate your account:
+<br>
+<%= link_to 'Click Here to Active Account', "http://www.localhost:3000/login?activation_key=#{@key}" ,method: :post %>
+<br>
+Thanks,
+<br>
+Brownfield Team

@@ -9,6 +9,11 @@
         <%= f.label :password %>
         <%= f.password_field :password, class: "block col-12 field" %>
       </div>
+      <% if @key %>
+        <div>
+          <%= f.hidden_field :activation_key, value: @key, class: "block col-12 field"%>
+        </div>
+      <% end %>
       <%= f.submit 'Log In', class: "mt2 btn btn-primary mb1 bg-teal" %>
     <% end %>
   </section>
