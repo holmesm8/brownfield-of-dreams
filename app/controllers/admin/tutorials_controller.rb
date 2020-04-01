@@ -6,10 +6,10 @@ class Admin::TutorialsController < Admin::BaseController
   def create
     @tutorial = Tutorial.new(tutorial_params)
     if @tutorial.save
-      flash[:notice] = "Successfully created tutorial."
+      flash[:notice] = 'Successfully created tutorial.'
       redirect_to "/tutorials/#{@tutorial.id}"
     else
-      flash[:notice] = "Please fill in all fields. " + @tutorial.errors.full_messages.to_sentence
+      flash[:notice] = 'Please fill in all fields. ' + @tutorial.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -35,6 +35,7 @@ class Admin::TutorialsController < Admin::BaseController
   end
 
   private
+
   def tutorial_params
     params.require(:tutorial).permit(:title, :description, :thumbnail, :tag_list)
   end
