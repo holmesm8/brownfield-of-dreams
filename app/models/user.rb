@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :user_videos
   has_many :videos, through: :user_videos
@@ -10,19 +12,20 @@ class User < ApplicationRecord
   validates :github_url, uniqueness: true, allow_blank: true
   validates_presence_of :password
   validates_presence_of :first_name, :last_name
-  enum role: [:default, :admin]
+  enum role: %i[default admin]
   has_secure_password
 
   def status
-    if self.email_confirm
-      "Status: Activated"
+    if email_confirm
+      'Status: Activated'
     else
-      "Status: Not Verified"
+      'Status: Not Verified'
     end
   end
 
   def api_github_connection
-    return nil if self.github_token.blank?
+    return nil if github_token.blank?
+
     GithubService.new
   end
 
@@ -45,28 +48,27 @@ class User < ApplicationRecord
   end
 
   def self.connected_follow?(url)
-   User.find_by(github_url: "#{url}") != nil
+    User.find_by(github_url: url.to_s) != nil
   end
 
   def friendships
-    User.find(self.id).friends
+    User.find(id).friends
   end
 
   def friend_check?(url)
-    url_array = User.find(self.id).friends.map {|friend| friend.github_url}
-    !(url_array.include?(url))
+    url_array = User.find(id).friends.map(&:github_url)
+    !url_array.include?(url)
   end
 
   def bookmarks_list
     videos = self.videos.joins(:tutorial).select('videos.title, tutorials.title AS tutorial')
-    videos.reduce(Hash.new{|hash, key| hash[key] = []}) do |acc, video|
-       acc[video[:tutorial]] << video
-       acc
-     end 
+    videos.each_with_object(Hash.new { |hash, key| hash[key] = [] }) do |video, acc|
+      acc[video[:tutorial]] << video
+    end
   end
 
   def set_confirmation_token
-    if self.confirm_token.blank?
+    if confirm_token.blank?
       self.confirm_token = SecureRandom.base64(10).to_s
     end
   end

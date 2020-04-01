@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GithubService
   def get_repos(user)
     JSON.parse(api_response('/user/repos', user).body, symbolize_names: true)
