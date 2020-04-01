@@ -68,8 +68,8 @@ class User < ApplicationRecord
   end
 
   def set_confirmation_token
-    if confirm_token.blank?
-      self.confirm_token = SecureRandom.base64(10).to_s
-    end
+    return unless confirm_token.blank?
+
+    self.confirm_token = SecureRandom.base64(10).to_s
   end
 end
