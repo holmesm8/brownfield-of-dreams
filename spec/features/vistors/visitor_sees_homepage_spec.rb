@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'Visitor' do
@@ -49,7 +51,6 @@ describe 'Visitor' do
       tutorial2 = create(:tutorial, classroom: true)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-
 
       video1 = create(:video, tutorial_id: tutorial1.id)
       video2 = create(:video, tutorial_id: tutorial1.id)

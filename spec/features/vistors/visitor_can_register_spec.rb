@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'vister can create an account', :js, :vcr do
@@ -24,7 +26,7 @@ describe 'vister can create an account', :js, :vcr do
     fill_in 'user[password]', with: password
     fill_in 'user[password_confirmation]', with: password
 
-    click_on'Create Account'
+    click_on 'Create Account'
 
     expect(current_path).to eq(dashboard_path)
 
@@ -57,14 +59,14 @@ describe 'vister can create an account', :js, :vcr do
     fill_in 'user[password]', with: password
     fill_in 'user[password_confirmation]', with: password
 
-    click_on'Create Account'
+    click_on 'Create Account'
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content('Status: Not Verified')
     expect(page).to have_content('Please check your email to fully activate your account.')
   end
 
-   it 'new registered users are sent an email to verify account', :vcr do
+  it 'new registered users are sent an email to verify account', :vcr do
     email = 'jimbob@aol.com'
     first_name = 'Jim'
     last_name = 'Bob'
@@ -87,10 +89,10 @@ describe 'vister can create an account', :js, :vcr do
     fill_in 'user[password]', with: password
     fill_in 'user[password_confirmation]', with: password
 
-    click_on'Create Account'
+    click_on 'Create Account'
 
     User.last.update_column(:email_confirm, true)
-    User.last.update_column(:confirm_token, "sdsdfksjdfoij2ieru02u")
+    User.last.update_column(:confirm_token, 'sdsdfksjdfoij2ieru02u')
 
     page.refresh
 

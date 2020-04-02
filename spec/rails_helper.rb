@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'vcr'
 require 'webmock/rspec'
@@ -14,11 +16,10 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.configure_rspec_metadata!
   config.ignore_localhost = true
-  config.default_cassette_options = {:record => :new_episodes}
-  config.filter_sensitive_data("<YOUTUBE_API_KEY>") { ENV['YOUTUBE_API_KEY'] }
-  config.filter_sensitive_data("<GITHUB_API_KEY>") { ENV['GITHUB_API_KEY'] }
+  config.default_cassette_options = { record: :new_episodes }
+  config.filter_sensitive_data('<YOUTUBE_API_KEY>') { ENV['YOUTUBE_API_KEY'] }
+  config.filter_sensitive_data('<GITHUB_API_KEY>') { ENV['GITHUB_API_KEY'] }
 end
-
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -31,13 +32,13 @@ Capybara.javascript_driver = :selenium_chrome_headless
 
 Capybara.configure do |config|
   config.default_max_wait_time = 5
-  config.server = :puma, { Silent: true}
+  config.server = :puma, { Silent: true }
 end
 
-SimpleCov.start "rails"
+SimpleCov.start 'rails'
 
 Shoulda::Matchers.configure do |config|
-    config.integrate do |with|
+  config.integrate do |with|
     with.test_framework :rspec
     with.library :rails
   end

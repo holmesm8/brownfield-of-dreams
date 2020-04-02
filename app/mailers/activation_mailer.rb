@@ -1,5 +1,6 @@
-class ActivationMailer < ApplicationMailer
+# frozen_string_literal: true
 
+class ActivationMailer < ApplicationMailer
   def inform(user_params, user)
     @key = user.set_confirmation_token
     @user_name = "#{user_params[:first_name]} #{user_params[:last_name]}"
