@@ -2,8 +2,6 @@
   <h1> <%= current_user.first_name %>'s Dashboard </h1>
   <%= current_user.status %>
   <br>
-  <%= link_to 'Send an Invite', invite_path %>
-  <br>
   <%= button_to 'Log Out', logout_path, method: 'delete', class: "btn btn-primary mb1 bg-teal" %>
 
   <h3>Account Details</h3>
@@ -41,6 +39,8 @@
       <%= button_to  "Connect to Github", github_login_path %>
     </section>
   <% else %>
+      <%= link_to 'Send an Invite', invite_path %>
+      <br>
     <section>
       <% if current_user.github_repos.length > 0 %>
       <h1>GitHub Repos</h1>
