@@ -65,5 +65,11 @@ RSpec.describe User, type: :model do
 
       expect(user.github_followings[0].class).to eq(Follower)
     end
+
+    it 'can set a confirmation token' do
+      user = create(:user)
+
+      expect(user.set_confirmation_token.class).to eq(String)
+    end
   end
 end

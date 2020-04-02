@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class Admin::Api::V1::BaseController < ActionController::API
-  before_action :require_admin!
+  # before_action :require_admin!
 
-  def require_admin!
-    four_oh_four unless current_user.admin?
-  end
+  # def require_admin!
+  #   four_oh_four unless current_user.admin?
+  # end
 
   def current_user
     @current_user ||= if session[:user_id]
@@ -15,7 +15,8 @@ class Admin::Api::V1::BaseController < ActionController::API
                       end
   end
 
-  def four_oh_four
-    raise ActionController::RoutingError, 'Not Found'
-  end
+  # def four_oh_four
+  #   flash[:error] = "No access"
+  #   redirect_to root_path
+  # end
 end

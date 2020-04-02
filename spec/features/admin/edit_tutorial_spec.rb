@@ -28,4 +28,23 @@ describe 'An Admin can edit a tutorial' do
       expect(page).to have_content('How to tie your shoes.')
     end
   end
+
+  it 'by adding a video', :js, vcr: vcr_options do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+    visit edit_admin_tutorial_path(tutorial)
+
+    click_on 'Add Video'
+
+    within '#new-video-form' do
+      fill_in 'video_description', with: 'Over, under, around and through, Meet Mr. Bunny Rabbit, pull and through.'
+      fill_in 'video_video_id', with: 'J7ikFUlkP_k'
+      # save_and_open_page
+      click_on 'Create Video'
+    end
+
+    expect(current_path).to eq(edit_admin_tutorial_path(tutorial))
+
+    expect(page).to have_content('Unable to create video')
+  end
 end
