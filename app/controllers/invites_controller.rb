@@ -4,9 +4,9 @@ class InvitesController < ApplicationController
   def new; end
 
   def create
-    inviter = current_user.github_url.split('/').last
+    # inviter = current_user.github_url.split('/').last
     github_api = GithubService.new
-    inviter = github_api.user_info(inviter)
+    inviter = github_api.user_info(current_user.github_url.split('/').last)
     user_hit = github_api.user_info(params[:invite][:github_handle])
     if !user_hit[:email].nil?
       InviteUserMailer.invite(inviter, user_hit).deliver_now
