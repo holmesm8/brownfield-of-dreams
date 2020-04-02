@@ -15,8 +15,8 @@ class UsersController < ApplicationController
       # ActivationMailer.inform(user_params, @user).deliver_now
       redirect_to dashboard_path
     else
-      flash[:error] = 'Username already exists'
-      render :new
+      flash[:error] = 'User was not registered'
+      redirect_to login_path
     end
   end
 

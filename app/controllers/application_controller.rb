@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def four_oh_four
-    raise ActionController::RoutingError, 'Not Found'
+    flash[:error] = 'No access'
+    redirect_to root_path
   end
 end

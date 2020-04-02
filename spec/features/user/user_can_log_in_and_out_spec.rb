@@ -58,4 +58,21 @@ describe 'User' do
 
     expect(page).to have_content('Looks like your email or password is invalid')
   end
+
+  it 'user can sign in', :vcr do
+    user = create(:user)
+
+    visit '/login?activation_key=2n34njk23kls'
+
+    click_on 'Sign In'
+
+    expect(current_path).to eq(login_path)
+
+    fill_in 'session[email]', with: user.email
+    fill_in 'session[password]', with: user.password
+
+    click_on 'Log In'
+
+    expect(current_path).to eq(dashboard_path)
+  end
 end
