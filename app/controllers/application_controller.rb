@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def four_oh_four
-    flash[:error] = "No access"
+    flash[:error] = 'No access'
     redirect_to root_path
   end
 end

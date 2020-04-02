@@ -7,7 +7,7 @@ class FriendshipsController < ApplicationController
     friendship = Friendship.new(user_id: user_a, friend_id: user_b)
     if friendship.save(user_id: user_a, friend_id: user_b)
       flash[:notice] = 'Added Friend'
-    # else
+      # else
       # Can't test post routes via capybara
       # flash[:error] =  'Friendship not made due to error!'
     end
