@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = 'Please check your email to fully activate your account.'
       session[:user_id] = @user.id
-      # ActivationMailer.inform(user_params, @user).deliver_now
+      ActivationMailer.inform(user_params, @user).deliver_now
       redirect_to dashboard_path
     else
       flash[:error] = 'Username already exists'
